@@ -1,0 +1,28 @@
+name: fetch new cameras
+
+on:
+  schedule:
+    - cron:  '0 1-4 * * *'
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Add nested repo
+        uses: actions/checkout@v3
+        with:
+          repository: ${{ secrets.REPO_PATH }} 
+          token: ${{ secrets.REPO_TOKEN }} 
+
+      - name: set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: fetch cameras
+        run:
+          java -Xms128m -Xmx4g -jar jar/grodno-roads-github-actions-1.0.jar FETCH_NEW_CAMERAS
