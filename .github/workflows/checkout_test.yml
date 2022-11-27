@@ -1,0 +1,17 @@
+name: Automation
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Add nested repo
+        uses: actions/checkout@v3
+        with:
+          repository: ${{ secrets.REPO_PATH }} 
+          token: ${{ secrets.REPO_TOKEN }} 
