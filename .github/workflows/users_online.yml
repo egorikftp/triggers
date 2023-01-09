@@ -1,4 +1,4 @@
-name: fetch new cameras
+name: fetch users online
 
 on:
   workflow_dispatch:
