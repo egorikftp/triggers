@@ -6,7 +6,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    env: 
+      GOOGLE_APPLICATION_CREDENTIALS: src/main/resources/service_account.json
     steps:
       - uses: actions/checkout@v3
 
