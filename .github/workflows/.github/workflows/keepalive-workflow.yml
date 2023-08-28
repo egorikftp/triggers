@@ -1,0 +1,16 @@
+name: Prevent Workflows from being disabled
+on:
+  schedule:
+    - cron: "0 0 * * 0"
+
+jobs:
+  cronjob-based-github-action:
+    name: Cronjob based github action
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Keep Alive Workflow
+      - uses: gautamkrishnar/keepalive-workflow@v1 # using the workflow with default settings
+        with:
+          committer_username: ${{ github.repository_owner }}
+          committer_email: "egorikftp@gmail.com"
