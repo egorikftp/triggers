@@ -17,3 +17,4 @@ jobs:
         with:
           committer_username: ${{ github.repository_owner }}
           committer_email: "egorikftp@gmail.com"
+          time_elapsed: 1
