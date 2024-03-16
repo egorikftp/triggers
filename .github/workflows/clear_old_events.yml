@@ -25,4 +25,4 @@ jobs:
 
       - name: clear old events
         run:
-          java -Xms128m -Xmx4g -jar jar/grodno-roads-github-actions-1.0.jar REMOVE_OLD_EVENTS
+          java -Xms128m -Xmx4g -jar jar/grodno-roads-github-actions.jar REMOVE_OLD_EVENTS
