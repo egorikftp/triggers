@@ -18,10 +18,10 @@ jobs:
           repository: ${{ secrets.REPO_PATH }} 
           token: ${{ secrets.REPO_TOKEN }} 
 
-      - name: set up JDK 11
+      - name: set up JDK 17
         uses: actions/setup-java@v1
         with:
-          java-version: 11
+          java-version: 17
 
       - name: fetch cameras
         run:
