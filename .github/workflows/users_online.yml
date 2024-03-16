@@ -26,4 +26,4 @@ jobs:
 
       - name: fetch users online
         run:
-          java -Xms128m -Xmx4g -jar jar/grodno-roads-github-actions-1.0.jar USERS_ONLINE
+          java -Xms128m -Xmx4g -jar jar/grodno-roads-github-actions.jar USERS_ONLINE

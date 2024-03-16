@@ -23,4 +23,4 @@ jobs:
 
       - name: test jar
         run:
-          java -Xms128m -Xmx4g -jar jar/grodno-roads-github-actions-1.0.jar
+          java -Xms128m -Xmx4g -jar jar/grodno-roads-github-actions.jar

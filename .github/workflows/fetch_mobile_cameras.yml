@@ -25,4 +25,4 @@ jobs:
 
       - name: fetch cameras
         run:
-          java -Xms128m -Xmx4g -jar jar/grodno-roads-github-actions-1.0.jar FETCH_NEW_CAMERAS
+          java -Xms128m -Xmx4g -jar jar/grodno-roads-github-actions.jar FETCH_NEW_CAMERAS
