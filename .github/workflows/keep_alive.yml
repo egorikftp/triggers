@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v3
       
       - name: Keep Alive Workflow
-        uses: gautamkrishnar/keepalive-workflow@v1
+        uses: gautamkrishnar/keepalive-workflow@v2
         with:
           committer_username: ${{ github.repository_owner }}
           committer_email: "egorikftp@gmail.com"
