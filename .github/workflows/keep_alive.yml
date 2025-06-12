@@ -8,6 +8,8 @@ on:
 jobs:
   cronjob-based-github-action:
     name: Cronjob based github action
+    permissions:
+        actions: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
