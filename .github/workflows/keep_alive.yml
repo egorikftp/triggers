@@ -8,15 +8,13 @@ on:
 jobs:
   cronjob-based-github-action:
     name: Cronjob based github action
-    permissions:
-        actions: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       
       - name: Keep Alive Workflow
-        uses: gautamkrishnar/keepalive-workflow@v2
+        uses: entepotenz/keep-github-actions-alive-min-dependencies@v1
         with:
-          committer_username: ${{ github.repository_owner }}
-          committer_email: "egorikftp@gmail.com"
-          time_elapsed: 1
+          COMMIT_USER_NAME: ${{ github.repository_owner }}
+          COMMIT_USER_EMAIL: "egorikftp@gmail.com"
+          TIME_ELAPSED_THRESHOLD_IN_DAYS: 1
