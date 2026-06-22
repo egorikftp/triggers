@@ -2,7 +2,7 @@ name: fetch new cameras
 
 on:
   schedule:
-    - cron:  '*/30 3-6 * * *'
+    - cron:  '*/30 3-7 * * *'
   workflow_dispatch:
   
 jobs:
