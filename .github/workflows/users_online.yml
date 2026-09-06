@@ -4,26 +4,11 @@ on:
   workflow_dispatch:
   schedule:
     - cron:  '*/5 * * * *'
-  
+
 jobs:
   build:
-    runs-on: ubuntu-latest
-    env: 
-      GOOGLE_APPLICATION_CREDENTIALS: src/main/resources/service_account.json
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Add nested repo
-        uses: actions/checkout@v3
-        with:
-          repository: ${{ secrets.REPO_PATH }} 
-          token: ${{ secrets.REPO_TOKEN }} 
-
-      - name: set up JDK 17
-        uses: actions/setup-java@v1
-        with:
-          java-version: 17
-
-      - name: fetch users online
-        run:
-          java -Xms128m -Xmx4g -jar jar/grodno-roads-github-actions.jar USERS_ONLINE
+    uses: ./.github/workflows/run-jar.yml
+    with:
+      task: USERS_ONLINE
+      google_credentials_env: true
+    secrets: inherit
