@@ -1,8 +1,8 @@
-name: fetch new cameras
+name: fetch mobile cameras
 
 on:
   schedule:
-    - cron:  '*/30 3-7 * * *'
+    - cron:  '0 3-7 * * *'
   workflow_dispatch:
 
 jobs:
