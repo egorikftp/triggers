@@ -3,11 +3,15 @@ name: fetch mobile cameras
 on:
   schedule:
     - cron:  '0 3-7 * * *'
-  workflow_dispatch:
-
+  workflow_dispatch:                                                                                                                                                                                           
+      inputs:                                                                                                                                                                                                    
+        force:                                                                                                                                                                                                   
+          description: 'Force publish to Firebase even if timestamp is not newer'                                                                                                                                
+          type: boolean                                                                                                                                                                                          
+          default: false                                                                                                                                                                                         
 jobs:
   build:
     uses: ./.github/workflows/run-jar.yml
     with:
-      task: FETCH_NEW_CAMERAS
+      task: FETCH_NEW_CAMERAS ${{ inputs.force && '--force' || '' }}
     secrets: inherit
