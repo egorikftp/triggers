@@ -2,6 +2,11 @@ name: fetch users online
 
 on:
   workflow_dispatch:
+    inputs:
+      debug:
+        description: 'Dry-run: log backend writes instead of performing them'
+        type: boolean
+        default: false
   schedule:
     - cron:  '*/5 * * * *'
 
@@ -11,4 +16,5 @@ jobs:
     with:
       task: users-online
       google_credentials_env: true
+      debug: ${{ inputs.debug }}
     secrets: inherit

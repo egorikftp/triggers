@@ -4,10 +4,15 @@ on:
   schedule:
     - cron:  '0 3-7 * * *'
   workflow_dispatch:
-
+    inputs:
+      debug:
+        description: 'Dry-run: log backend writes instead of performing them'
+        type: boolean
+        default: false
 jobs:
   build:
     uses: ./.github/workflows/run-jar.yml
     with:
       task: mobile-cameras-fetch
+      debug: ${{ inputs.debug }}
     secrets: inherit
