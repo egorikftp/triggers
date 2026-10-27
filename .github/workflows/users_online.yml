@@ -9,6 +9,6 @@ jobs:
   build:
     uses: ./.github/workflows/run-jar.yml
     with:
-      task: USERS_ONLINE
+      task: users-online
       google_credentials_env: true
     secrets: inherit

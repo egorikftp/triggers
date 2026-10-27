@@ -9,5 +9,5 @@ jobs:
   build:
     uses: ./.github/workflows/run-jar.yml
     with:
-      task: CLEAR_MOBILE_CAMERAS
+      task: mobile-cameras-clear
     secrets: inherit

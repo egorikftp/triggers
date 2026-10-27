@@ -9,5 +9,5 @@ jobs:
   build:
     uses: ./.github/workflows/run-jar.yml
     with:
-      task: REMOVE_OLD_EVENTS
+      task: remove-old-events
     secrets: inherit
