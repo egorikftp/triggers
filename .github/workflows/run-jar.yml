@@ -13,10 +13,15 @@ on:
         required: false
         type: boolean
         default: false
+      debug:
+        description: 'Dry-run: pass --debug to the jar (backend writes are skipped)'
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     env:
       GOOGLE_APPLICATION_CREDENTIALS: ${{ inputs.google_credentials_env && 'src/main/resources/service_account.json' || '' }}
     steps:
@@ -35,4 +40,4 @@ jobs:
           java-version: 17
 
       - name: run jar
-        run: java -Xms128m -Xmx512m -jar jar/grodno-roads-github-actions.jar ${{ inputs.task }}
+        run: java -Xms128m -Xmx512m -jar jar/grodno-roads-github-actions.jar ${{ inputs.task }} ${{ inputs.debug && '--debug' || '' }}

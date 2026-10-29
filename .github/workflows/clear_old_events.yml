@@ -4,10 +4,16 @@ on:
   schedule:
     - cron:  '0 * * * *'
   workflow_dispatch:
+    inputs:
+      debug:
+        description: 'Dry-run: log backend writes instead of performing them'
+        type: boolean
+        default: false
 
 jobs:
   build:
     uses: ./.github/workflows/run-jar.yml
     with:
-      task: REMOVE_OLD_EVENTS
+      task: remove-old-events
+      debug: ${{ inputs.debug }}
     secrets: inherit
