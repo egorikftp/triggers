@@ -15,5 +15,5 @@ jobs:
     uses: ./.github/workflows/run-jar.yml
     with:
       task: users-online
-      debug: ${{ inputs.debug }}
+      debug: ${{ inputs.debug || false }}
     secrets: inherit
