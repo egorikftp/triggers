@@ -15,6 +15,5 @@ jobs:
     uses: ./.github/workflows/run-jar.yml
     with:
       task: users-online
-      google_credentials_env: true
       debug: ${{ inputs.debug }}
     secrets: inherit

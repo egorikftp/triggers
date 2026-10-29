@@ -8,11 +8,6 @@ on:
         required: false
         type: string
         default: ''
-      google_credentials_env:
-        description: 'Whether to set GOOGLE_APPLICATION_CREDENTIALS for the run step'
-        required: false
-        type: boolean
-        default: false
       debug:
         description: 'Dry-run: pass --debug to the jar (backend writes are skipped)'
         required: false
@@ -22,8 +17,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-slim
-    env:
-      GOOGLE_APPLICATION_CREDENTIALS: ${{ inputs.google_credentials_env && 'src/main/resources/service_account.json' || '' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -40,4 +33,7 @@ jobs:
           java-version: 17
 
       - name: run jar
+        env:
+          GOOGLE_CREDENTIALS_JSON: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/service_account.json
         run: java -Xms128m -Xmx512m -jar jar/grodno-roads-github-actions.jar ${{ inputs.task }} ${{ inputs.debug && '--debug' || '' }}
