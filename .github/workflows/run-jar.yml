@@ -17,6 +17,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-slim
+    # ubuntu-slim has no UTF-8 locale in the environment, so JDK 17 (pre-JEP 400)
+    # falls back to a US-ASCII default charset and println mangles Cyrillic to '?'.
+    # C.UTF-8 is built into Ubuntu 24.04, no locale installation needed.
+    env:
+      LANG: C.UTF-8
     steps:
       - uses: actions/checkout@v4
 
