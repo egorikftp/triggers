@@ -41,6 +41,7 @@ jobs:
         env:
           GOOGLE_CREDENTIALS_JSON: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
           GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/service_account.json
+          FIREBASE_ADMIN_SERVICE_ACCOUNT: ${{ runner.temp }}/service_account.json
         run: |
           printf '%s' "$GOOGLE_CREDENTIALS_JSON" > "$GOOGLE_APPLICATION_CREDENTIALS"
           java -Xms128m -Xmx512m -jar jar/grodno-roads-github-actions.jar ${{ inputs.task }} ${{ inputs.debug && '--debug' || '' }}
