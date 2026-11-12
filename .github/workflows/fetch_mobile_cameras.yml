@@ -9,6 +9,11 @@ on:
         description: 'Dry-run: log backend writes instead of performing them'
         type: boolean
         default: false
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
 jobs:
   build:
     uses: ./.github/workflows/run-jar.yml
